@@ -7,7 +7,7 @@ int main(int argc, char* argv[]) {
     gst_init(&argc, &argv);
 
     if (argc != 2) {
-        std::cerr << "how to run: ./relay rtsp://<hanwha_camera_url>" << std::endl;
+        std::cerr << "how to run: ./hanwha_rtsp rtsp://<hanwha_camera_url>" << std::endl;
         return -1;
     }
 
@@ -36,7 +36,7 @@ int main(int argc, char* argv[]) {
         return -1;
     }
 
-    std::cout << "rtsp on: rtsp://192.168.0.76:8554/stream_pno" << std::endl;
+    std::cout << "rtsp on: rtsp://192.168.0.76:8553/stream_pno" << std::endl;
 
     GMainLoop* loop = g_main_loop_new(NULL, FALSE);
     g_main_loop_run(loop);
