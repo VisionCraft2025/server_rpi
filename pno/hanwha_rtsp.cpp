@@ -1,4 +1,4 @@
-//g++ hanwha_rtsp.cpp -o relay   `pkg-config --cflags --libs gstreamer-1.0 gstreamer-rtsp-server-1.0`
+//g++ hanwha_rtsp.cpp -o hanwha_rtsp `pkg-config --cflags --libs gstreamer-1.0 gstreamer-rtsp-server-1.0`
 #include <gst/gst.h>
 #include <gst/rtsp-server/rtsp-server.h>
 #include <iostream>
