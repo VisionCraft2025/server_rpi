@@ -1,6 +1,0 @@
-paths:
-  stream1:
-    source: publisher
-
-  process1:
-    source: udp://:5000
