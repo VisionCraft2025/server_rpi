@@ -11,10 +11,12 @@ int main(int argc, char *argv[]) {
     // mount 포인트 생성
     GstRTSPMountPoints *mounts = gst_rtsp_server_get_mount_points(server);
 
-    // 파이프라인 생성 (라즈베리파이 카메라 → H.264 인코딩 → RTP 패킷화)
+    
+    // appsrc에서 처리된 영상 수신받기 → H.264 인코딩 → RTP 패킷화
     const gchar *launch_desc =
-        "( libcamerasrc ! video/x-raw,width=1280,height=720,framerate=15/1 ! "
-        "videoconvert ! x264enc tune=zerolatency bitrate=1000 speed-preset=ultrafast key-int-max=15 ! "
+        "( appsrc name=mysource is-live=true format=time do-timestamp=true ! "
+        "videoconvert ! video/x-raw,format=I420 ! "
+        "x264enc tune=zerolatency bitrate=1000 speed-preset=ultrafast key-int-max=15 ! "
         "rtph264pay name=pay0 pt=96 )";
         
     // 미디어 팩토리 생성 및 파이프라인 연결
