@@ -1,0 +1,14 @@
+CXX = g++
+TARGET = test_client
+SRC = test_client.cpp
+
+CXXFLAGS = `pkg-config --cflags gstreamer-1.0`
+LDFLAGS = `pkg-config --libs gstreamer-1.0`
+
+all: $(TARGET)
+
+$(TARGET): $(SRC)
+	$(CXX) $(SRC) -o $(TARGET) $(CXXFLAGS) $(LDFLAGS)
+
+clean:
+	rm -f $(TARGET)
